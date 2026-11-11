@@ -101,26 +101,6 @@
     border-radius: 50%;
 }
 
-/* .weather-modal-title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-.weather-modal-title button {
-    width: 30px;
-    height: 30px;
-    padding: 0;
-    border: none;
-    color: #f1f1f1;
-    background: none;
-    font-size: 18px;
-    cursor: pointer;
-} */
-
 .weather-modal-title {
     position: relative;
     display: flex;
@@ -144,4 +124,8 @@
     background: none;
     font-size: 18px;
     cursor: pointer;
+}
+
+.coordi-message {
+    white-space: pre-line;
 }

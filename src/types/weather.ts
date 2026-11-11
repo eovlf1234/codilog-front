@@ -28,6 +28,7 @@ export type Weather = {
         bottom: string;
         shoes: string;
     }
+    coordiMessage: string;
 };
 
 export type CacheWeather = {

@@ -137,9 +137,18 @@ const Location = () => {
                 </div>
                 <div className="coordi-information">
                   <div>오늘의 추천코디</div>
-                  <div>Top : {weather?.coordi?.top}</div>
-                  <div>Bottom : {weather?.coordi?.bottom}</div>
-                  <div>Shoes : {weather?.coordi?.shoes}</div>
+                  {weather.coordi ?
+                    (
+                      <div>
+                        <div>Top : {weather?.coordi?.top}</div>
+                        <div>Bottom : {weather?.coordi?.bottom}</div>
+                        <div>Shoes : {weather?.coordi?.shoes}</div>
+                      </div>
+                    ) :
+                    (
+                      <div className="coordi-message">{weather.coordiMessage}</div>
+                    )}
+                  
                 </div>
               </div>
             </div>
