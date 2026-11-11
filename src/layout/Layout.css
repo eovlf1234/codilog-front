@@ -1,0 +1,68 @@
+
+/* 앱 전체 컨테이너 */
+.app {
+  max-width: 480px;           /* 모바일 앱 느낌 */
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+/* 콘텐츠 영역 */
+.content {
+  flex: 1;
+  padding: 20px;
+  padding-bottom: 70px;
+}
+
+/* 공통 제목 */
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* 텍스트 */
+p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* 버튼 스타일 */
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background-color: #4f46e5;
+  color: #FFFFFF;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background-color: #4338ca;
+}
+
+.app.sunny {
+  background: url("/images/sunny.png") no-repeat center/cover;
+}
+.app.cloud {
+  background: url("/images/cloud.png") no-repeat center/cover;
+}
+.app.overcast {
+  background: url("/images/overcast.png") no-repeat center/cover;
+}
+.app.rain {
+  background: url("/images/rain.png") no-repeat center/cover;
+}
+.app.snow {
+  background: url("/images/snow.png") no-repeat center/cover;
+}
+.app.rainSnow {
+  background: url("/images/rainSnow.png") no-repeat center/cover;
+}
+.app.shower {
+  background: url("/images/shower.png") no-repeat center/cover;
+}

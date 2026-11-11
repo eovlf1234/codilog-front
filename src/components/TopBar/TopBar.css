@@ -1,0 +1,90 @@
+.topbar {
+    position: sticky;
+    top: 0;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 16px 20px;
+    background: #121212;
+    border-bottom: 1px solid #2c2c2c;
+    z-index: 100;
+}
+
+.topbar-left {
+    grid-column: 1;
+    justify-self: start;
+}
+
+.topbar-title {
+    grid-column: 2;
+    justify-self: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.topbar-right {
+    grid-column: 3;
+    justify-self: end;
+}
+
+/* 버튼 */
+.up-button, .home-button, .prev-button, .write-button, .top-sort-button, .logout-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+    padding: 0;
+
+    border: none;
+    border-radius: 6px;
+
+    background: none;
+    color: #aaa;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+.up-button:hover, .home-button:hover, .prev-button:hover, .write-button:hover, .top-sort-button:hover, .logout-button:hover {
+    background: #333;
+}
+
+
+/* 정렬 메뉴 */
+.top-sort-menu {
+    position: absolute;
+    top: 50px;
+    right: 30px;
+
+    width: 100px;
+
+    background: #222;
+    border: 1px solid #333;
+    border-radius: 8px;
+
+    overflow: hidden;
+    z-index: 10;
+}
+
+
+/* 정렬 메뉴 항목 */
+.top-sort-menu button {
+    padding: 10px 12px;
+
+    font-size: 13px;
+    color: #ddd;
+    background-color: #1e1e1e;
+
+    cursor: pointer;
+}
+
+.top-sort-menu button:hover {
+    background: #333;
+}
+
+.top-sort-menu button {
+    white-space: pre-line;
+}

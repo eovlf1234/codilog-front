@@ -1,0 +1,267 @@
+/* 댓글창 전체 */
+.comment-section {
+    width: 360px;
+    max-width: 80vw;
+    height: 600px;
+    max-height: 80vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #121212;
+    color: #f5f5f5;
+}
+
+
+/* 댓글 상단 */
+.modal-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    padding: 0 20px;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+
+/* 댓글 제목 */
+.modal-header > div:first-child {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+
+/* 정렬 영역 */
+.sort-wrapper {
+    display: flex;
+
+}
+
+
+/* 정렬 버튼 */
+.sort-button, .modal-close-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+    padding: 0;
+
+    border: none;
+    border-radius: 6px;
+
+    background: none;
+    color: #aaa;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+.sort-button:hover, .close-button:hover {
+    background: #333;
+}
+
+
+/* 정렬 메뉴 */
+.sort-menu {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    width: 100px;
+
+    background: #222;
+    border: 1px solid #333;
+    border-radius: 8px;
+
+    overflow: hidden;
+    z-index: 10;
+}
+
+
+/* 정렬 메뉴 항목 */
+.sort-menu div {
+    padding: 10px 12px;
+
+    font-size: 13px;
+    color: #ddd;
+
+    cursor: pointer;
+}
+
+.sort-menu div:hover {
+    background: #333;
+}
+
+
+/* X 버튼 */
+/* .close-button {
+    position: absolute;
+    right: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 48px;
+    padding: 0;
+
+    border: none;
+    border-radius: 6px;
+
+    background: none;
+    color: #aaa;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+.close-button:hover {
+    background: #333;
+    color: #ddd;
+} */
+
+
+/* 댓글 목록 */
+.comment-list {
+    flex: 1;
+
+    padding: 20px;
+    max-height: 500px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+
+/* 스크롤바 */
+.comment-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.comment-list::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 10px;
+}
+
+.comment-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+/* 댓글 하나 */
+.comment-list > div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+
+/* 닉네임 + 작성시간 */
+.comment-list > div > div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* 닉네임 */
+.comment-list > div > div:first-child > div:first-child {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* 작성시간 */
+.comment-list > div > div:first-child > div:last-child {
+    font-size: 12px;
+    color: #888;
+}
+
+
+/* 댓글 내용 */
+.comment-list > div > div:last-child {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #ddd;
+
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+
+/* 댓글 작성 영역 */
+.comment-form {
+    padding: 12px 16px;
+
+    border-top: 1px solid #2a2a2a;
+    background: #161616;
+}
+
+
+/* form */
+.comment-form form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* 입력창 */
+.comment-form input {
+    flex: 1;
+
+    min-width: 0;
+    height: 36px;
+
+    padding: 0 14px;
+
+    border: 1px solid #333;
+    border-radius: 18px;
+
+    outline: none;
+
+    background: #222;
+    color: #f5f5f5;
+
+    font-size: 14px;
+}
+
+.comment-form input::placeholder {
+    color: #777;
+}
+
+.comment-form input:focus {
+    border-color: #666;
+}
+
+
+/* 등록 버튼 */
+.comment-form button {
+    width: 50px;
+    height: 36px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 18px;
+
+    background: #f5f5f5;
+    color: #121212;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.comment-form button:hover {
+    background: #ddd;
+}
