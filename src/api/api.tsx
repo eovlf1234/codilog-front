@@ -1,7 +1,11 @@
 import axios from "axios";
 
+const API_BASE_URL = import.meta.env.DEV
+    ? "http://localhost:8080"
+    : "https://codilog-back.onrender.com";
+
 const api = axios.create({
-    baseURL: "http://localhost:8080",
+    baseURL: API_BASE_URL,
     withCredentials: true
 });
 
