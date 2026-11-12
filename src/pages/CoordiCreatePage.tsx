@@ -6,6 +6,7 @@ import { IoAdd } from "react-icons/io5";
 import api from "../api/api";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 const CoordiCreatePage = () => {
 
@@ -37,13 +38,17 @@ const CoordiCreatePage = () => {
         })
 
         try {
-            await api.post("/coordi", formData);
+            const data = await api.post("/coordi", formData);
 
-            toast.success("게시글이 작성되었습니다.");
+            toast.success(data.data.message);
 
             navigation("/coordi");
-        } catch(error) {
-            toast.error("게시글을 작성하는데 실패하였습니다.");
+        } catch(error: unknown) {
+        if(axios.isAxiosError(error)) {
+            toast.error(error.response?.data.message);
+        } else {
+            toast.error("알 수 없는 오류가 발생하였습니다.");
+        }
         }
 
     };

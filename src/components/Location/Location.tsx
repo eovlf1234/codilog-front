@@ -7,6 +7,7 @@ import { getWeatherIcon } from "../../utils/weather";
 import Modal from "../Modal/Modal";
 import api from "../../api/api";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 const Location = () => {
   // 시간데이터
@@ -55,8 +56,12 @@ const Location = () => {
             time: Date.now(),
           }),
         );
-      } catch(error) {
-        toast.error("날씨를 불러오는데 실패하였습니다.");
+      } catch(error: unknown) {
+        if(axios.isAxiosError(error)) {
+          toast.error(error.response?.data.message);
+        } else {
+          toast.error("알 수 없는 오류가 발생하였습니다.");
+        }
       }
     }
       

@@ -4,6 +4,7 @@ import type React from "react";
 import { useState } from "react";
 import api from "../api/api";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 const LoginPage = () => {
 
@@ -27,8 +28,12 @@ const LoginPage = () => {
 
       navigate("/home");
 
-    } catch(error) {
-      toast.error("로그인에 실패하였습니다.");
+    } catch(error: unknown) {
+      if(axios.isAxiosError(error)) {
+        toast.error(error.response?.data.message);
+      } else {
+        toast.error("알 수 없는 오류가 발생하였습니다.");
+      }
     }
 
   }

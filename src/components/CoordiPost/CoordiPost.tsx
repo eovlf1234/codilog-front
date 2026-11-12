@@ -7,6 +7,7 @@ import { MdMoreVert } from "react-icons/md";
 import api from "../../api/api";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 type Props = {
     coordi: Coordi;
@@ -95,13 +96,16 @@ const CoordiPost = ({ coordi, setCommentCoordiId, ManagerButton = false } : Prop
     const coordiDelete = async () => {
 
         try{
-            await api.delete(`/coordi/${coordi.id}`);
+            const data = await api.delete(`/coordi/${coordi.id}`);
 
-            toast.success("게시글이 삭제되었습니다.");
+            toast.success(data.data.message);
 
             window.location.reload();
-        } catch(error) {
-            toast.error("게시글 삭제에 실패하였습니다.");
+
+        } catch(error: unknown) {
+            if(axios.isAxiosError(error)) {
+                toast.error(error.response?.data.message);
+            }
         }
         
     }

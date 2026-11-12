@@ -9,6 +9,7 @@ import type { PageResponse } from "../../types/PageResponse";
 import type { CoordiSort } from "../../types/SortOrder";
 import { coordiSort } from "../../types/SortOrder";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 type Props = {
   coordiId: number | null;
@@ -58,8 +59,12 @@ const CommentModal = ({
       setHasNext(!data.last);
       setPage(targetPage + 1);
 
-    } catch(error) {
-      toast.error("댓글을 불러오는데 실패하였습니다.");
+    } catch(error: unknown) {
+      if(axios.isAxiosError(error)) {
+        toast.error(error.response?.data.message);
+      } else {
+        toast.error("알 수 없는 오류가 발생하였습니다.");
+      }
     } finally {
       setLoading(false);
     }

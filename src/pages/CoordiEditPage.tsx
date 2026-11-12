@@ -7,6 +7,7 @@ import api from "../api/api";
 import { useNavigate, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import { getImageUrl } from "../config";
+import axios from "axios";
 
 const CoordiEditPage = () => {
 
@@ -77,13 +78,17 @@ const CoordiEditPage = () => {
         });
 
         try {
-            await api.patch(`coordi/${id}`, formData);
+            const data = await api.patch(`coordi/${id}`, formData);
 
-            toast.success("게시글이 수정되었습니다.");
+            toast.success(data.data.message);
 
             navigation("/coordi");
-        } catch(error) {
-            toast.error("게시글 수정에 실패하였습니다.");
+        } catch(error: unknown) {
+            if(axios.isAxiosError(error)) {
+                toast.error(error.response?.data.message);
+            } else {
+                toast.error("알 수 없는 오류가 발생하였습니다.");
+            }
         }
 
     };

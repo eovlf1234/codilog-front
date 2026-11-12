@@ -7,6 +7,7 @@ import api from "../api/api";
 import { IoClose } from "react-icons/io5";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 
 const MyPage = () => {
@@ -33,15 +34,19 @@ const MyPage = () => {
   // 비밀번호 변경
   const passwordChange = async () => {
     try{
-      await api.patch("users/me/password", password, {
+      const data = await api.patch("users/me/password", password, {
         headers: {
           "Content-Type": "text/plain"
         }
       });
-      toast.success("비밀번호가 변경되었습니다.");
+      toast.success(data.data.message);
       closeModal();
-    } catch(error) {
-      toast.error("비밀번호 변경에 실패했습니다.");
+    } catch(error: unknown) {
+      if(axios.isAxiosError(error)) {
+        toast.error(error.response?.data.message);
+      } else {
+        toast.error("알 수 없는 오류가 발생하였습니다.");
+      }
     }
   }
 
@@ -54,8 +59,12 @@ const MyPage = () => {
 
       toast.success(data.data.message);
 
-    } catch (error) {
-        toast.error("회원탈퇴에 실패하였습니다.");
+    } catch(error: unknown) {
+      if(axios.isAxiosError(error)) {
+        toast.error(error.response?.data.message);
+      } else {
+        toast.error("알 수 없는 오류가 발생하였습니다.");
+      }
     }
   }
 

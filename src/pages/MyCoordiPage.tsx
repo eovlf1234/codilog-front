@@ -9,6 +9,7 @@ import CommentModal from "../components/Modal/CommentModal";
 import type { CoordiSort } from "../types/SortOrder";
 import { coordiSort } from "../types/SortOrder";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 const MyCoordiPage = () => {
 
@@ -54,8 +55,12 @@ const MyCoordiPage = () => {
 
       setHasNext(!data.last);
 
-    } catch(error) {
-      toast.error("게시글을 불러오는데 실패하였습니다.");
+    } catch(error: unknown) {
+      if(axios.isAxiosError(error)) {
+        toast.error(error.response?.data.message);
+      } else {
+        toast.error("알 수 없는 오류가 발생하였습니다.");
+      }
     } finally {
       setLoading(false);
     }
