@@ -18,13 +18,18 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
 
     // 성공
-    (response) => response,
+    (response) => {
+        useLoadingStore.getState().stopLoading();
+        return response;
+    },
 
     // 실패
     async (error) => {
+        useLoadingStore.getState().stopLoading();
+
         const originalRequest = error.config;
 
-        if(error.response?.status === 401 && !originalRequest._retry) {
+        if(error.response?.status === 401 && originalRequest && !originalRequest._retry && !originalRequest.url?.include("/users/refresh")) {
             originalRequest._retry = true;
 
             try {
