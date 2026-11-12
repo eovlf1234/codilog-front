@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { Coordi } from "../../types/Coordi";
-import { IMAGE_BASE_URL } from "../../config";
+import { getImageUrl } from "../../config";
 import "../CoordiPost/CoordiPost.css";
 import { IoChevronBack, IoChevronForward, IoHeart, IoHeartOutline } from "react-icons/io5";
 import { MdMoreVert } from "react-icons/md";
@@ -150,7 +150,7 @@ const CoordiPost = ({ coordi, setCommentCoordiId, ManagerButton = false } : Prop
                                     // 이미지 출력
                                     coordi.images.map((image) => (
                                         <div className="post-image" key={image}>
-                                            <img src={`${IMAGE_BASE_URL}${image}`}></img>
+                                            <img src={`${getImageUrl(image)}`}></img>
                                         </div>
                                 ))
                                 }

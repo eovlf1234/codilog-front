@@ -6,7 +6,7 @@ import { IoAdd } from "react-icons/io5";
 import api from "../api/api";
 import { useNavigate, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
-import { IMAGE_BASE_URL } from "../config";
+import { getImageUrl } from "../config";
 
 const CoordiEditPage = () => {
 
@@ -141,7 +141,7 @@ const CoordiEditPage = () => {
                                     images.map((image, index) => (
                                         <div key={index} className="image-item">
                                             <img src={
-                                                image.type === "existing" ? `${IMAGE_BASE_URL}${image.value}`
+                                                image.type === "existing" ? `${getImageUrl(image.value)}`
                                                 :URL.createObjectURL(image.value)} alt="이미지" />
                                             <button className="image-remove" type="button" onClick={() => removeImage(index)}><IoClose size={18} /></button>
                                         </div>
