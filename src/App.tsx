@@ -12,12 +12,14 @@ import MyProfile from "./pages/MyProfilePage";
 import MyCoordi from "./pages/MyCoordiPage";
 import CoordiEdit from "./pages/CoordiEditPage";
 import MyLikeCoordi from "./pages/MyLikeCoordiPage";
+import LoadingOverlay from "./components/LoadingOverlay/LoadingOverlay";
 
 function App() {
 
   return (
     <BrowserRouter>
       <ToastConfig />
+      <LoadingOverlay />
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Login />}></Route>

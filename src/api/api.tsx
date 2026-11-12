@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useLoadingStore } from "../store/loadingStore";
 
 const API_BASE_URL = import.meta.env.DEV
     ? "http://localhost:8080"
@@ -8,6 +9,11 @@ const api = axios.create({
     baseURL: API_BASE_URL,
     withCredentials: true
 });
+
+api.interceptors.request.use((config) => {
+    useLoadingStore.getState().startLoading();
+    return config;
+})
 
 api.interceptors.response.use(
 
