@@ -3,7 +3,7 @@ import { useLoadingStore } from "../store/loadingStore";
 
 const API_BASE_URL = import.meta.env.DEV
     ? "http://localhost:8080"
-    : "https://codilog-back.onrender.com";
+    : "/api";
 
 const api = axios.create({
     baseURL: API_BASE_URL,
@@ -29,7 +29,7 @@ api.interceptors.response.use(
 
         const originalRequest = error.config;
 
-        if(error.response?.status === 401 && originalRequest && !originalRequest._retry && !originalRequest.url?.include("/users/refresh")) {
+        if(error.response?.status === 401 && originalRequest && !originalRequest._retry && !originalRequest.url?.includes("/users/refresh")) {
             originalRequest._retry = true;
 
             try {

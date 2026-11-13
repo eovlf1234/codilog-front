@@ -91,14 +91,19 @@
     display: flex;
     gap: 8px;
     width: 100%;
+    min-width: 0;
 }
 
 .Edit-form .nickname-box input {
     flex: 1;
     width: auto;
+    min-width: 0;
 }
 
 .nickname-box button {
+    width: auto;
+    flex-shrink: 0;
+
     padding: 14px 18px;
 
     border: none;

@@ -48,9 +48,12 @@
     cursor: pointer;
 }
 
-.up-button:hover, .home-button:hover, .prev-button:hover, .write-button:hover, .top-sort-button:hover, .logout-button:hover {
-    background: #333;
+@media (hover: hover) and (pointer: fine) {
+    .up-button:hover, .home-button:hover, .prev-button:hover, .write-button:hover, .top-sort-button:hover, .logout-button:hover {
+        background: #333;
+    }
 }
+
 
 
 /* 정렬 메뉴 */
