@@ -1,4 +1,10 @@
 /* 마이페이지 리스트 */
+.info-ul {
+  padding-left: 20px;
+  margin: 0;
+  list-style-position: outside;
+}
+
 .info-ul li a, .password-edit-button {
     display: block;
     width: 100%;
